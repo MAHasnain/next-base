@@ -3,6 +3,7 @@
 import { Box, Typography } from "@mui/material";
 import Card from "../card/CourseCard";
 import CourseCard from "../card/CourseCard";
+import Link from "next/link";
 
 const Courses = () => {
   type courseType = {
@@ -31,18 +32,18 @@ const Courses = () => {
       thumbnail: "/courses/react.webp",
       courseName: "Design Systems With React",
       instructor: "Aria Kim",
-      raiting: 4.6,
-      price: "$20",
+      raiting: 2.6,
+      price: "$90",
       classesQty: 12,
       studentsQty: 120,
     },
     {
       id: 3,
       thumbnail: "/courses/UiUx.webp",
-      courseName: "Create Stunning Banners In Figma",
+      courseName: "Create Banners In Figma",
       instructor: "Elena Brooks",
-      raiting: 4.9,
-      price: "$20",
+      raiting: 3.9,
+      price: "$50",
       classesQty: 12,
       studentsQty: 140,
     },
@@ -50,9 +51,18 @@ const Courses = () => {
   return (
     <>
       <Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between", m: "" }}>
-          <Typography variant="h3">Popular courses</Typography>
-          <Typography>Browse All Courses</Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            mb: 4,
+          }}
+        >
+          <Typography variant="h4">Popular courses</Typography>
+          <Typography>
+            <Link href="/courses">Browse All Courses</Link>
+          </Typography>
         </Box>
         <Box
           sx={{

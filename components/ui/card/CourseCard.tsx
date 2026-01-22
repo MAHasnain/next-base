@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../card";
 import { Box, Divider } from "@mui/material";
-import { Book, BookOpenText, UsersRound } from "lucide-react";
+import { BookOpenText, Star, UsersRound } from "lucide-react";
 type courseCardProps = {
   thumbnail: string;
   courseName: string;
@@ -25,44 +25,76 @@ const CourseCard = ({
     <>
       <Card
         style={{
-          width: "250px",
+          width: "350px",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
         }}
       >
         <CardHeader>
-          <CardContent>
-            <Image src={thumbnail} height={100} width={130} alt="course" />
+          <CardContent
+            style={{ position: "relative", width: "100%", height: "200px" }}
+          >
+            <Image
+              src={thumbnail}
+              style={{ borderRadius: "10px", objectFit: "cover" }}
+              alt="course"
+              // height={200}
+              // width={200}
+              fill
+              // sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </CardContent>
         </CardHeader>
 
-        <CardTitle>{courseName}</CardTitle>
-        <CardContent>
+        <CardTitle style={{ padding: "0 20px", fontSize: "1.2rem" }}>
+          {courseName}
+        </CardTitle>
+        <CardContent style={{ padding: "0 20px", height: "80px" }}>
           <p>{instructor}</p>
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-            <p>{raiting}</p>
-            <p>{price}</p>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              padding: "20px 0",
+            }}
+          >
+            <span style={{ display: "flex", alignItems: "center" }}>
+              <p style={{ fontWeight: "bold", fontSize: "20px", color: "red" }}>
+                {raiting}
+              </p>
+              {Array.from({ length: Math.floor(raiting) }, (_, i) => (
+                <Star key={i} style={{ fill: "#ffe300", stroke: "none" }} />
+              ))}
+            </span>
+            <p style={{ fontWeight: "bold", fontSize: "25px" }}>{price}</p>
           </Box>
         </CardContent>
         <Divider />
-        <CardFooter>
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <BookOpenText />
-              <p>
-                <span>{classesQty}</span>
-                Classes
-              </p>
-            </div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <UsersRound />
-              <p>
-                <span>{studentsQty}</span>
-                Students
-              </p>
-            </div>
-          </Box>
+        <CardFooter
+          style={{ display: "flex", justifyContent: "space-between " }}
+        >
+          <div
+            style={{ display: "flex", justifyContent: "center", gap: "10px" }}
+          >
+            <BookOpenText width={15} />
+            <p>
+              <span>{classesQty} </span>
+              Classes
+            </p>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              gap: "10px",
+            }}
+          >
+            <UsersRound width={15} />
+            <p>
+              <span>{studentsQty} </span>
+              Students
+            </p>
+          </div>
         </CardFooter>
       </Card>
     </>
