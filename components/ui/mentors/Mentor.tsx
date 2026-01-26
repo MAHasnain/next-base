@@ -43,7 +43,7 @@ const Mentor = () => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            textAlign: "start",
+            textAlign: "center",
             gap: "20px",
             margin:"50px 0"
           }}
