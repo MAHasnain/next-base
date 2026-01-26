@@ -4,18 +4,9 @@ import { Box, Typography } from "@mui/material";
 import Card from "../card/CourseCard";
 import CourseCard from "../card/CourseCard";
 import Link from "next/link";
+import { courseType } from "@/types/int";
 
 const Courses = () => {
-  type courseType = {
-    id: number;
-    thumbnail: string;
-    courseName: string;
-    instructor: string;
-    raiting: number;
-    price: string;
-    classesQty: number;
-    studentsQty: number;
-  };
   const courses: courseType[] = [
     {
       id: 1,
@@ -57,9 +48,12 @@ const Courses = () => {
             justifyContent: "space-between",
             alignItems: "center",
             mb: 4,
+            margin: "50px",
           }}
         >
-          <Typography variant="h4">Popular courses</Typography>
+          <Typography fontFamily="poppins" fontWeight={600} variant="h4">
+            Popular courses
+          </Typography>
           <Typography>
             <Link href="/courses">Browse All Courses</Link>
           </Typography>
