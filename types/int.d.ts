@@ -40,3 +40,22 @@ interface ReviewsCardProps {
   name: string;
   designation: string;
 }
+
+interface InputProps {
+  label: string;
+  placeholder: string;
+
+}
+
+interface ButtonProps {
+  text: string;
+  
+  // onclick function
+  // styling
+  
+}
+
+interface TextAreaProps { 
+ placeholder: string;
+  
+}
